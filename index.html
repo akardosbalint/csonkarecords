@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<!--
+  ============================================================
+  TODO – Pótlandó, valós adatok (jelenleg helyőrzők a kódban):
+  ============================================================
+  1. Pontos stúdió cím                       -> keresd: [IDE: cím]
+  2. Kapcsolati e-mail cím                    -> keresd: [IDE: e-mail cím]
+  3. Telefonszám                              -> keresd: [IDE: telefonszám]
+  4. Nyitvatartás                             -> keresd: [IDE: nyitvatartás]
+  5. Instagram link                           -> keresd: [IDE: Instagram link]
+  6. YouTube link                             -> keresd: [IDE: YouTube link]
+  7. Spotify link                             -> keresd: [IDE: Spotify link]
+  8. TikTok link                              -> keresd: [IDE: TikTok link]
+  9. Ajánlatkérő űrlap küldés endpoint         -> keresd: [IDE: Formspree/Web3Forms endpoint]
+  10. Hero és "Rólunk" képek/placeholderek     -> keresd: [IDE: kép]
+  11. Favicon / OG kép esetleges csere         -> keresd: [IDE: OG kép]
+  ============================================================
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Csonka Records – Zenei Stúdió Pécs | Felvétel, Mixing, Mastering, Beatkészítés</title>
+<meta name="description" content="Csonka Records – pécsi zenei stúdió feltörekvő rappereknek, énekeseknek és producereknek. Felvétel, beatkészítés, mixing és mastering megfizethető áron.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Csonka Records – minőségi zene, elérhető áron.">
+<meta property="og:description" content="Pécsi zenei stúdió: felvétel, beatkészítés, mixing és mastering feltörekvő előadóknak.">
+<meta property="og:image" content="[IDE: OG kép URL]">
+<meta property="og:locale" content="hu_HU">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Csonka Records – minőségi zene, elérhető áron.">
+<meta name="twitter:description" content="Pécsi zenei stúdió: felvétel, beatkészítés, mixing és mastering feltörekvő előadóknak.">
+<meta name="twitter:image" content="[IDE: OG kép URL]">
+
+<!-- Favicon: egyszerű "C" monogram SVG -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0a0a'/%3E%3Ctext x='32' y='44' font-family='Arial, sans-serif' font-weight='900' font-size='36' fill='%23ff2340' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- LocalBusiness Schema.org JSON-LD (helyőrző adatokkal) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Csonka Records",
+  "description": "Zenei stúdió Pécsen: felvétel, beatkészítés, mixing és mastering.",
+  "slogan": "Csonka Records – minőségi zene, elérhető áron.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "[IDE: cím]",
+    "addressLocality": "Pécs",
+    "addressCountry": "HU"
+  },
+  "email": "[IDE: e-mail cím]",
+  "telephone": "[IDE: telefonszám]",
+  "openingHours": "[IDE: nyitvatartás]",
+  "url": "[IDE: weboldal URL]",
+  "sameAs": [
+    "[IDE: Instagram link]",
+    "[IDE: YouTube link]",
+    "[IDE: Spotify link]",
+    "[IDE: TikTok link]"
+  ]
+}
+</script>
+
+<style>
+  /* ============================================================
+     CSS VÁLTOZÓK – színek, fontok, térközök egy helyen
+     ============================================================ */
+  :root {
+    --bg: #0a0a0a;
+    --bg-alt: #131313;
+    --bg-card: #161616;
+    --bg-card-border: #262626;
+    --text: #f2f2f0;
+    --text-muted: #9a9a95;
+    --accent: #ff2340;
+    --accent-dim: #7a1120;
+    --accent-glow: rgba(255, 35, 64, 0.35);
+    --gold: #e8b84b;
+
+    --font-display: 'Anton', 'Arial Narrow', sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.75rem;
+    --space-lg: 3rem;
+    --space-xl: 5rem;
+
+    --radius: 10px;
+    --max-width: 1180px;
+
+    --transition: 220ms cubic-bezier(.2,.7,.3,1);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* finom szemcsézettség (grain) */
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(255,35,64,0.06), transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(232,184,75,0.05), transparent 45%);
+  }
+
+  img { max-width: 100%; display: block; }
+
+  a { color: inherit; }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.05;
+    margin: 0;
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+
+  section { position: relative; padding: var(--space-xl) 0; }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-sm);
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    margin-bottom: var(--space-md);
+  }
+
+  .section-lead {
+    color: var(--text-muted);
+    max-width: 640px;
+    font-size: 1.05rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.9rem 1.6rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: transform var(--transition), box-shadow var(--transition), background var(--transition), color var(--transition);
+    font-family: var(--font-body);
+  }
+  .btn:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 8px 24px -6px var(--accent-glow);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -6px var(--accent-glow); }
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border-color: var(--bg-card-border);
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  .btn-block { width: 100%; }
+
+  /* ============================================================
+     NAVIGÁCIÓ
+     ============================================================ */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--bg-card-border);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem var(--space-md);
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    color: var(--text);
+  }
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .nav-links a:not(.btn) {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    transition: color var(--transition);
+  }
+  .nav-links a:not(.btn):hover,
+  .nav-links a:not(.btn):focus-visible { color: var(--text); }
+
+  .nav-cta { display: none; }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
+    background: transparent;
+    border: 1px solid var(--bg-card-border);
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0;
+  }
+  .hamburger span {
+    display: block;
+    height: 2px;
+    margin: 0 9px;
+    background: var(--text);
+    transition: transform var(--transition), opacity var(--transition);
+  }
+  .hamburger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .hamburger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--bg-card-border);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    padding: 1rem var(--space-md);
+    border-top: 1px solid var(--bg-card-border);
+  }
+  .mobile-menu .btn { margin: var(--space-sm) var(--space-md) var(--space-md); }
+
+  @media (min-width: 900px) {
+    .nav-links { display: flex; }
+    .nav-cta { display: inline-flex; }
+    .hamburger { display: none; }
+    .mobile-menu { display: none !important; }
+  }
+  @media (max-width: 899px) {
+    .nav-links { display: none; }
+  }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero {
+    padding: var(--space-xl) 0 var(--space-lg);
+    text-align: center;
+    position: relative;
+  }
+  .hero-eyebrow {
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+  }
+  .hero h1 {
+    font-size: clamp(3rem, 13vw, 7rem);
+    margin: var(--space-sm) 0;
+    color: var(--text);
+  }
+  .hero h1 .accent { color: var(--accent); }
+  .hero-slogan {
+    font-size: clamp(1.05rem, 3vw, 1.4rem);
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: 0 auto var(--space-lg);
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+  }
+
+  /* animált waveform */
+  .waveform {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+    height: 60px;
+    max-width: 480px;
+    margin: 0 auto;
+    opacity: 0.85;
+  }
+  .waveform span {
+    display: block;
+    width: 4px;
+    border-radius: 4px;
+    background: linear-gradient(to top, var(--accent), var(--gold));
+    animation: wave 1.2s ease-in-out infinite;
+  }
+  @keyframes wave {
+    0%, 100% { transform: scaleY(0.25); }
+    50% { transform: scaleY(1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .waveform span { animation: none; transform: scaleY(0.6); }
+  }
+
+  .hero-image-placeholder {
+    margin: var(--space-lg) auto 0;
+    max-width: 720px;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius);
+    border: 1px dashed var(--bg-card-border);
+    background: repeating-linear-gradient(135deg, #141414, #141414 12px, #191919 12px, #191919 24px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-align: center;
+    padding: var(--space-sm);
+  }
+
+  /* ============================================================
+     SCROLL REVEAL
+     ============================================================ */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 700ms ease, transform 700ms ease;
+  }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ============================================================
+     RÓLUNK
+     ============================================================ */
+  .about {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--bg-card-border);
+    border-bottom: 1px solid var(--bg-card-border);
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    align-items: start;
+  }
+  @media (min-width: 900px) {
+    .about-grid { grid-template-columns: 1fr 1fr; gap: var(--space-xl); }
+  }
+  .about-image-placeholder {
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius);
+    border: 1px dashed var(--bg-card-border);
+    background: repeating-linear-gradient(45deg, #141414, #141414 12px, #191919 12px, #191919 24px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-align: center;
+    padding: var(--space-sm);
+  }
+  .about-text p { color: var(--text-muted); margin: 0 0 var(--space-sm); }
+  .about-text strong.highlight {
+    color: var(--text);
+    background: linear-gradient(transparent 65%, var(--accent-dim) 65%);
+    padding: 0 0.1em;
+  }
+  .about-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+  }
+  .stat {
+    flex: 1 1 140px;
+    border: 1px solid var(--bg-card-border);
+    border-radius: var(--radius);
+    padding: var(--space-sm);
+    background: var(--bg-card);
+  }
+  .stat strong {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--accent);
+  }
+  .stat span { color: var(--text-muted); font-size: 0.85rem; }
+
+  /* ============================================================
+     SZOLGÁLTATÁSOK
+     ============================================================ */
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  @media (min-width: 720px) {
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .service-card {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-border);
+    border-radius: var(--radius);
+    padding: var(--space-lg) var(--space-md);
+    transition: transform var(--transition), border-color var(--transition);
+  }
+  .service-card:hover { transform: translateY(-6px); border-color: var(--accent); }
+  .service-icon { font-size: 2.2rem; margin-bottom: var(--space-sm); }
+  .service-card h3 {
+    font-family: var(--font-body);
+    text-transform: none;
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: var(--space-xs);
+    letter-spacing: 0;
+  }
+  .service-card p { color: var(--text-muted); margin: 0; font-size: 0.95rem; }
+
+  /* ============================================================
+     CSOMAGOK
+     ============================================================ */
+  .packages-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  @media (min-width: 720px) {
+    .packages-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 1100px) {
+    .packages-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  .package-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-border);
+    border-radius: var(--radius);
+    padding: var(--space-md);
+    position: relative;
+    transition: transform var(--transition), border-color var(--transition);
+  }
+  .package-card:hover { transform: translateY(-6px); }
+  .package-card h3 {
+    font-family: var(--font-body);
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+  }
+  .package-sub { color: var(--text-muted); font-size: 0.85rem; margin-bottom: var(--space-sm); }
+  .package-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: var(--space-sm); }
+  .package-price {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    color: var(--accent);
+    margin-bottom: var(--space-sm);
+    line-height: 1.3;
+  }
+  .package-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-md);
+    flex-grow: 1;
+  }
+  .package-features li {
+    padding: 0.35rem 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--bg-card-border);
+  }
+  .package-features li:first-child { border-top: none; }
+
+  .package-card.featured {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent), 0 20px 40px -20px var(--accent-glow);
+  }
+  .featured-badge {
+    position: absolute;
+    top: -14px;
+    left: var(--space-md);
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+  }
+
+  .package-card.premium {
+    background: linear-gradient(160deg, #1b1408, #0c0c0c 60%);
+    border-color: var(--gold);
+  }
+  .package-card.premium .package-price { color: var(--gold); }
+  .package-card.premium .btn-primary { background: var(--gold); color: #1a1400; box-shadow: 0 8px 24px -6px rgba(232,184,75,0.35); }
+
+  /* Árkalkulátor */
+  .calculator {
+    margin-top: var(--space-xl);
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-border);
+    border-radius: var(--radius);
+    padding: var(--space-lg) var(--space-md);
+  }
+  .calc-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: var(--space-md);
+    flex-wrap: wrap;
+  }
+  .calc-tab {
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid var(--bg-card-border);
+    background: transparent;
+    color: var(--text-muted);
+    font-weight: 700;
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+  }
+  .calc-tab[aria-pressed="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    align-items: center;
+  }
+  @media (min-width: 720px) {
+    .calc-grid { grid-template-columns: 1fr 1fr auto; }
+  }
+  .calc-field label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+  }
+  .stepper {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .stepper button {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--bg-card-border);
+    background: var(--bg-alt);
+    color: var(--text);
+    font-size: 1.2rem;
+    cursor: pointer;
+    line-height: 1;
+  }
+  .stepper button:hover { border-color: var(--accent); color: var(--accent); }
+  .stepper output {
+    min-width: 46px;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+  }
+  .calc-total {
+    text-align: center;
+    background: var(--bg-alt);
+    border-radius: var(--radius);
+    padding: var(--space-md);
+  }
+  .calc-total span { display: block; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.3rem; }
+  .calc-total strong { font-family: var(--font-display); font-size: 2rem; color: var(--accent); }
+  .calc-note {
+    margin-top: var(--space-md);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px dashed var(--bg-card-border);
+    padding-top: var(--space-sm);
+  }
+
+  /* ============================================================
+     HOGYAN MŰKÖDIK
+     ============================================================ */
+  .steps {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    counter-reset: step;
+  }
+  @media (min-width: 720px) {
+    .steps { grid-template-columns: repeat(3, 1fr); }
+  }
+  .step {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-border);
+    border-radius: var(--radius);
+    padding: var(--space-lg) var(--space-md);
+    position: relative;
+  }
+  .step-number {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    color: var(--accent);
+    opacity: 0.5;
+    line-height: 1;
+    margin-bottom: var(--space-sm);
+  }
+  .step h3 {
+    font-family: var(--font-body);
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 0.4rem;
+  }
+  .step p { color: var(--text-muted); margin: 0; font-size: 0.92rem; }
+
+  /* ============================================================
+     KAPCSOLAT / ŰRLAP
+     ============================================================ */
+  .contact {
+    background: var(--bg-alt);
+    border-top: 1px solid var(--bg-card-border);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  @media (min-width: 900px) {
+    .contact-grid { grid-template-columns: 0.8fr 1.2fr; }
+  }
+  .contact-info p { color: var(--text-muted); }
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-md) 0;
+  }
+  .contact-list li {
+    display: flex;
+    gap: 0.6rem;
+    padding: 0.6rem 0;
+    border-top: 1px solid var(--bg-card-border);
+    font-size: 0.95rem;
+    color: var(--text-muted);
+  }
+  .contact-list li:first-child { border-top: none; }
+  .contact-list li strong { color: var(--text); min-width: 90px; }
+
+  form.request-form {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-border);
+    border-radius: var(--radius);
+    padding: var(--space-lg) var(--space-md);
+  }
+  .form-row { margin-bottom: var(--space-md); }
+  .form-row label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+  .form-row .required { color: var(--accent); }
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    width: 100%;
+    background: var(--bg-alt);
+    border: 1px solid var(--bg-card-border);
+    border-radius: 8px;
+    padding: 0.8rem 0.9rem;
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+  }
+  .form-row input:focus,
+  .form-row select:focus,
+  .form-row textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+  }
+  .form-row textarea { min-height: 120px; resize: vertical; }
+  .field-error {
+    color: var(--accent);
+    font-size: 0.82rem;
+    margin-top: 0.35rem;
+    display: none;
+  }
+  .form-row.invalid input,
+  .form-row.invalid select,
+  .form-row.invalid textarea { border-color: var(--accent); }
+  .form-row.invalid .field-error { display: block; }
+
+  .form-footnote {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: var(--space-sm);
+    text-align: center;
+  }
+  .form-footnote a { color: var(--accent); text-decoration: underline; }
+
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: var(--space-lg) var(--space-md);
+    background: var(--bg-card);
+    border: 1px solid var(--accent);
+    border-radius: var(--radius);
+  }
+  .form-success.show { display: block; }
+  .form-success h3 { font-family: var(--font-body); text-transform: none; letter-spacing: 0; color: var(--accent); margin-bottom: 0.5rem; }
+  .form-success p { color: var(--text-muted); margin: 0; }
+
+  /* ============================================================
+     "HALLGASS BELE" – előkészítve, kikommentezve (nincs valós tartalom)
+     ============================================================ */
+  /*
+  .showcase { }
+  .showcase-grid { display: grid; gap: var(--space-md); }
+  .showcase-track { display: flex; align-items: center; gap: var(--space-sm); background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: var(--radius); padding: var(--space-sm); }
+  .showcase-track audio { flex: 1; width: 100%; }
+  */
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  footer {
+    padding: var(--space-lg) 0 var(--space-md);
+    border-top: 1px solid var(--bg-card-border);
+  }
+  .footer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+  .footer-brand .nav-logo { font-size: 1.4rem; }
+  .footer-brand p { color: var(--text-muted); max-width: 320px; margin-top: 0.6rem; font-size: 0.9rem; }
+  .footer-col h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+  }
+  .footer-col ul { list-style: none; padding: 0; margin: 0; }
+  .footer-col li { margin-bottom: 0.5rem; }
+  .footer-col a { text-decoration: none; color: var(--text); font-size: 0.9rem; }
+  .footer-col a:hover { color: var(--accent); }
+
+  .social-row {
+    display: flex;
+    gap: 0.6rem;
+  }
+  .social-row a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--bg-card-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: border-color var(--transition), color var(--transition);
+    font-size: 0.9rem;
+  }
+  .social-row a:hover { border-color: var(--accent); color: var(--accent); }
+
+  .footer-bottom {
+    border-top: 1px solid var(--bg-card-border);
+    padding-top: var(--space-md);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    justify-content: space-between;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+  }
+
+  /* Skip link (akadálymentesség) */
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--accent);
+    color: #fff;
+    padding: 0.8rem 1.2rem;
+    z-index: 200;
+    border-radius: 0 0 8px 0;
+  }
+  .skip-link:focus { left: 0; }
+
+  ::selection { background: var(--accent); color: #fff; }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Ugrás a tartalomhoz</a>
+
+<!-- ============================================================
+     NAVIGÁCIÓ
+     ============================================================ -->
+<header class="navbar">
+  <div class="nav-inner">
+    <a href="#main" class="nav-logo">CSONKA <span>RECORDS</span></a>
+    <nav aria-label="Fő navigáció">
+      <ul class="nav-links">
+        <li><a href="#rolunk">Rólunk</a></li>
+        <li><a href="#szolgaltatasok">Szolgáltatások</a></li>
+        <li><a href="#csomagok">Csomagok</a></li>
+        <li><a href="#kapcsolat">Kapcsolat</a></li>
+      </ul>
+    </nav>
+    <a href="#kapcsolat" class="btn btn-primary nav-cta">Ajánlatot kérek</a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menü megnyitása" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav id="mobileMenu" class="mobile-menu" aria-label="Mobil navigáció">
+    <a href="#rolunk">Rólunk</a>
+    <a href="#szolgaltatasok">Szolgáltatások</a>
+    <a href="#csomagok">Csomagok</a>
+    <a href="#kapcsolat">Kapcsolat</a>
+    <a href="#kapcsolat" class="btn btn-primary">Ajánlatot kérek</a>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Zenei stúdió &middot; Pécs</p>
+      <h1>CSONKA <span class="accent">RECORDS</span></h1>
+      <p class="hero-slogan">Csonka Records – minőségi zene, elérhető áron.</p>
+      <div class="hero-actions">
+        <a href="#csomagok" class="btn btn-primary">Csomagok megtekintése</a>
+        <a href="#kapcsolat" class="btn btn-outline">Ajánlatot kérek</a>
+      </div>
+      <div class="waveform" aria-hidden="true" id="waveform"></div>
+      <div class="hero-image-placeholder" role="img" aria-label="Helyőrző kép a stúdióról">
+        [IDE: kép – stúdió belső tér / hero fotó]
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RÓLUNK
+       ============================================================ -->
+  <section class="about" id="rolunk">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-placeholder reveal" role="img" aria-label="Helyőrző kép a Csonka Records csapatáról">
+          [IDE: kép – Ilyszabi &amp; Bandeszko / stúdió]
+        </div>
+        <div class="about-text reveal">
+          <p class="eyebrow">Rólunk</p>
+          <h2 class="section-title">Nagyatádtól Pécsig</h2>
+          <p>A Csonka Records mögött két unokatestvér, Ilyszabi és Bandeszko áll. <strong class="highlight">Nagyatádról</strong>, egy Somogy megyei kisvárosból indultunk, és immár <strong class="highlight">közel 10 éve</strong> foglalkozunk zenével. Az évek során a zene nemcsak egy hobbi lett számunkra, hanem egy olyan közös út, amin együtt fejlődtünk producerként, előadóként és technikusként.</p>
+          <p>A Csonka Records ötlete is ebből született. Szerettünk volna létrehozni egy olyan helyet <strong class="highlight">Pécsen</strong>, ahol a zenét komolyan vevő előadók megfizethető áron kaphatnak valóban jó minőségű hangzást.</p>
+          <p>Legyen szó egy új track felvételéről, trap beatről, vokál felvételről, mixről vagy masterről, nálunk az a cél, hogy az elkészült zene úgy szóljon, ahogy azt az előadó elképzelte. Nem az számít, hogy honnan jössz vagy mekkora neved van, hanem az, hogy mit szeretnél létrehozni.</p>
+          <p>Mi is ugyanonnan indultunk, mint sok feltörekvő előadó: kevés lehetőséggel, de annál nagyobb lelkesedéssel. Ezt a szemléletet szeretnénk továbbvinni, és egy olyan közösséget építeni, ahol bárki megkapja a lehetőséget arra, hogy a zenéjéből a lehető legtöbbet hozza ki.</p>
+          <div class="about-stats">
+            <div class="stat"><strong>~10 év</strong><span>zenei tapasztalat</span></div>
+            <div class="stat"><strong>Nagyatád</strong><span>ahonnan indultunk</span></div>
+            <div class="stat"><strong>Pécs</strong><span>a stúdió otthona</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SZOLGÁLTATÁSAINK
+       ============================================================ -->
+  <section id="szolgaltatasok">
+    <div class="container">
+      <p class="eyebrow reveal">Szolgáltatásaink</p>
+      <h2 class="section-title reveal">Mivel tudunk segíteni</h2>
+      <p class="section-lead reveal">Az első felvételtől a végleges masterig, egy helyen.</p>
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">🎙️</div>
+          <h3>Felvétel</h3>
+          <p>Vedd fel nálunk a következő zenédet, legyen szó egy új trackről, vokálról vagy akár egy teljes projektről. Segítünk kihozni a legtöbbet az előadásodból, hogy a felvétel már az első lépéstől jó alapot adjon a kész zenéhez.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">🎹</div>
+          <h3>Beatkészítés</h3>
+          <p>Saját beatek közül is választhatsz, de ha valami egyedibbre vágysz, egyedi kérésre is készítünk. A cél, hogy olyan alap szülessen, ami tényleg passzol hozzád, a stílusodhoz és ahhoz, amit el szeretnél mondani.</p>
+        </article>
+        <article class="service-card reveal">
+          <div class="service-icon" aria-hidden="true">🎚️</div>
+          <h3>Mixing &amp; Mastering</h3>
+          <p>A felvételből kész zenét csinálunk. A mixing során összeállítjuk és formáljuk a hangzást, a masteringgel pedig megadjuk a végső hangképet, hogy a zenéd publikálásra kész legyen.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CSOMAGOK
+       ============================================================ -->
+  <section id="csomagok">
+    <div class="container">
+      <p class="eyebrow reveal">Csomagok</p>
+      <h2 class="section-title reveal">Válaszd ki, mire van szükséged</h2>
+      <p class="section-lead reveal">Négy csomag, hogy bármilyen szinten állsz is, megtaláld a hozzád illőt.</p>
+
+      <div class="packages-grid">
+        <!-- STARTER -->
+        <article class="package-card reveal">
+          <h3>🎙️ Starter</h3>
+          <p class="package-sub">Felvétel</p>
+          <p class="package-desc">Ha már megvan a beat, és csak egy minőségi stúdiófelvételre van szükséged.</p>
+          <p class="package-price">4 000 Ft / megkezdett óra</p>
+          <ul class="package-features">
+            <li>🎙️ Stúdiófelvétel</li>
+            <li>🎧 Technikai segítség a felvétel során</li>
+            <li>📁 A felvételek átadása</li>
+          </ul>
+          <a href="#kapcsolat" class="btn btn-outline btn-block choose-package" data-package="Starter">Ezt kérem</a>
+        </article>
+
+        <!-- SOUND -->
+        <article class="package-card reveal">
+          <h3>🎚️ Sound</h3>
+          <p class="package-sub">Felvétel + Mixing &amp; Mastering</p>
+          <p class="package-desc">Ha már megvan a beat, mi pedig a felvételtől a végleges hangzásig elkészítjük a tracket.</p>
+          <p class="package-price">4 000 Ft / megkezdett felvételi óra<br>+ 20 000 Ft / track Mixing &amp; Mastering</p>
+          <ul class="package-features">
+            <li>🎙️ Stúdiófelvétel</li>
+            <li>🎚️ Mixing</li>
+            <li>🔊 Mastering</li>
+            <li>📁 Publikálásra kész végleges track</li>
+          </ul>
+          <a href="#kapcsolat" class="btn btn-outline btn-block choose-package" data-package="Sound">Ezt kérem</a>
+        </article>
+
+        <!-- SIGNATURE (kiemelt) -->
+        <article class="package-card featured reveal">
+          <span class="featured-badge">⭐ Legnépszerűbb</span>
+          <h3>🎹 Signature</h3>
+          <p class="package-sub">Custom Beat + Felvétel + Mixing &amp; Mastering</p>
+          <p class="package-desc">Ha egy teljesen saját, rád szabott zenét szeretnél az ötlettől a végleges masterig.</p>
+          <p class="package-price">Egyedi árazás a custom beat alapján<br>+ 4 000 Ft / megkezdett felvételi óra<br>+ 20 000 Ft / track Mixing &amp; Mastering</p>
+          <ul class="package-features">
+            <li>🎹 Egyedi, rád szabott beat</li>
+            <li>🎙️ Stúdiófelvétel</li>
+            <li>🎛️ Produceri közreműködés</li>
+            <li>🎚️ Mixing</li>
+            <li>🔊 Mastering</li>
+            <li>📁 Publikálásra kész track</li>
+          </ul>
+          <a href="#kapcsolat" class="btn btn-primary btn-block choose-package" data-package="Signature">Ezt kérem</a>
+        </article>
+
+        <!-- CSONKA FULL PRODUCTION (prémium) -->
+        <article class="package-card premium reveal">
+          <h3>👑 Csonka Full Production</h3>
+          <p class="package-sub">A teljes csomag</p>
+          <p class="package-desc">Az első ötlettől egészen a kész, megjelenésre kész zenéig együtt dolgozunk a projekten.</p>
+          <p class="package-price">Egyedi ajánlat alapján</p>
+          <ul class="package-features">
+            <li>🎹 Custom Beat</li>
+            <li>🎙️ Stúdiófelvétel</li>
+            <li>🎛️ Produceri és kreatív közreműködés</li>
+            <li>🎚️ Mixing</li>
+            <li>🔊 Mastering</li>
+            <li>📁 Végleges, publikálásra kész track</li>
+          </ul>
+          <a href="#kapcsolat" class="btn btn-primary btn-block choose-package" data-package="Csonka Full Production">Ezt kérem</a>
+        </article>
+      </div>
+
+      <!-- ÁRKALKULÁTOR -->
+      <div class="calculator reveal">
+        <p class="eyebrow" style="margin-bottom:0.4rem;">Árkalkulátor</p>
+        <h3 style="font-family:var(--font-body); text-transform:none; letter-spacing:0; font-size:1.4rem; margin-bottom:1rem;">Számold ki nagyjából, mennyibe kerül</h3>
+        <div class="calc-tabs" role="tablist" aria-label="Csomag választása a kalkulátorhoz">
+          <button type="button" class="calc-tab" role="tab" aria-pressed="true" data-calc="starter">Starter</button>
+          <button type="button" class="calc-tab" role="tab" aria-pressed="false" data-calc="sound">Sound</button>
+        </div>
+        <div class="calc-grid">
+          <div class="calc-field">
+            <label id="hoursLabel" for="hoursValue">Felvételi órák száma</label>
+            <div class="stepper">
+              <button type="button" id="hoursMinus" aria-label="Órák számának csökkentése">−</button>
+              <output id="hoursValue" for="hoursMinus hoursPlus">1</output>
+              <button type="button" id="hoursPlus" aria-label="Órák számának növelése">+</button>
+            </div>
+          </div>
+          <div class="calc-field" id="tracksField" style="display:none;">
+            <label id="tracksLabel" for="tracksValue">Trackek száma (Mixing &amp; Mastering)</label>
+            <div class="stepper">
+              <button type="button" id="tracksMinus" aria-label="Trackek számának csökkentése">−</button>
+              <output id="tracksValue" for="tracksMinus tracksPlus">1</output>
+              <button type="button" id="tracksPlus" aria-label="Trackek számának növelése">+</button>
+            </div>
+          </div>
+          <div class="calc-total">
+            <span>Becsült végösszeg</span>
+            <strong id="calcTotal">4 000 Ft</strong>
+          </div>
+        </div>
+        <p class="calc-note">A Signature és a Csonka Full Production csomagok egyedi árazásúak (a custom beat / az egyedi ajánlat miatt), ezekre nem lehet előre kalkulálni – kérj rájuk személyre szabott ajánlatot.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HOGYAN MŰKÖDIK
+       ============================================================ -->
+  <section id="hogyan-mukodik">
+    <div class="container">
+      <p class="eyebrow reveal">Hogyan működik</p>
+      <h2 class="section-title reveal">Három egyszerű lépés</h2>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-number">01</div>
+          <h3>Írsz nekünk</h3>
+          <p>Elmeséled, milyen zenét szeretnél, és melyik csomag érdekel – az ajánlatkérő űrlapon vagy elérhetőségeinken.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">02</div>
+          <h3>Egyeztetünk és időpontot foglalunk</h3>
+          <p>Átbeszéljük a részleteket, és lefoglaljuk a neked megfelelő stúdióidőpontot.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-number">03</div>
+          <h3>Felvétel / munka a stúdióban</h3>
+          <p>Elkezdődik a közös munka: felvétel, beatkészítés vagy mixing &amp; mastering – attól függően, mit választottál.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       "HALLGASS BELE" – kikommentezve, nincs még valós tartalom
+       ============================================================ -->
+  <!--
+  <section class="showcase" id="hallgass-bele">
+    <div class="container">
+      <p class="eyebrow">Hallgass bele</p>
+      <h2 class="section-title">Amit eddig csináltunk</h2>
+      <div class="showcase-grid">
+        <div class="showcase-track">
+          <span>Track cím – Előadó</span>
+          <audio controls preload="none" src="[IDE: audio fájl URL]"></audio>
+        </div>
+      </div>
+    </div>
+  </section>
+  -->
+
+  <!-- ============================================================
+       KAPCSOLAT / AJÁNLATKÉRŐ ŰRLAP
+       ============================================================ -->
+  <section class="contact" id="kapcsolat">
+    <div class="container">
+      <p class="eyebrow reveal">Kapcsolat</p>
+      <h2 class="section-title reveal">Kérj ajánlatot</h2>
+      <p class="section-lead reveal">Írd meg, mit szeretnél létrehozni, mi pedig hamarosan jelentkezünk.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <p>Keress minket bátran bármelyik elérhetőségünkön, vagy töltsd ki az űrlapot – igyekszünk gyorsan válaszolni.</p>
+          <ul class="contact-list">
+            <li><strong>Cím</strong> <span>[IDE: cím], Pécs</span></li>
+            <li><strong>E-mail</strong> <span>[IDE: e-mail cím]</span></li>
+            <li><strong>Telefon</strong> <span>[IDE: telefonszám]</span></li>
+            <li><strong>Nyitvatartás</strong> <span>[IDE: nyitvatartás]</span></li>
+          </ul>
+          <div class="social-row" aria-label="Közösségi média">
+            <a href="[IDE: Instagram link]" aria-label="Csonka Records Instagram" target="_blank" rel="noopener noreferrer">IG</a>
+            <a href="[IDE: YouTube link]" aria-label="Csonka Records YouTube" target="_blank" rel="noopener noreferrer">YT</a>
+            <a href="[IDE: Spotify link]" aria-label="Csonka Records Spotify" target="_blank" rel="noopener noreferrer">SP</a>
+            <a href="[IDE: TikTok link]" aria-label="Csonka Records TikTok" target="_blank" rel="noopener noreferrer">TT</a>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <form class="request-form" id="requestForm" action="[IDE: Formspree/Web3Forms endpoint]" method="POST" novalidate>
+            <div class="form-row">
+              <label for="name">Név <span class="required">*</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" required>
+              <p class="field-error">Kérjük, add meg a neved.</p>
+            </div>
+            <div class="form-row">
+              <label for="email">E-mail cím <span class="required">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+              <p class="field-error">Adj meg egy érvényes e-mail címet.</p>
+            </div>
+            <div class="form-row">
+              <label for="phone">Telefonszám (opcionális)</label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel">
+            </div>
+            <div class="form-row">
+              <label for="package">Melyik csomag érdekel? <span class="required">*</span></label>
+              <select id="package" name="package" required>
+                <option value="">Válassz csomagot...</option>
+                <option value="Starter">Starter</option>
+                <option value="Sound">Sound</option>
+                <option value="Signature">Signature</option>
+                <option value="Csonka Full Production">Csonka Full Production</option>
+                <option value="Még nem tudom">Még nem tudom</option>
+              </select>
+              <p class="field-error">Kérjük, válassz egy csomagot.</p>
+            </div>
+            <div class="form-row">
+              <label for="message">Mesélj a zenédről <span class="required">*</span></label>
+              <textarea id="message" name="message" placeholder="Milyen zenét szeretnél, milyen stílusban, van-e referenciád?" required></textarea>
+              <p class="field-error">Írj pár mondatot arról, mit szeretnél.</p>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Ajánlatot kérek</button>
+            <p class="form-footnote">Vagy írj közvetlenül: <a href="mailto:[IDE: e-mail cím]">[IDE: e-mail cím]</a></p>
+          </form>
+
+          <div class="form-success" id="formSuccess" role="status">
+            <h3>Köszönjük a megkeresést!</h3>
+            <p>Hamarosan felvesszük veled a kapcsolatot. Addig is dobj fel valamit a fülhallgatóra. 🎧</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#main" class="nav-logo">CSONKA <span style="color:var(--accent);">RECORDS</span></a>
+        <p>Zenei stúdió Pécsen – felvétel, beatkészítés, mixing és mastering feltörekvő előadóknak.</p>
+        <div class="social-row" aria-label="Közösségi média" style="margin-top:1rem;">
+          <a href="[IDE: Instagram link]" aria-label="Instagram" target="_blank" rel="noopener noreferrer">IG</a>
+          <a href="[IDE: YouTube link]" aria-label="YouTube" target="_blank" rel="noopener noreferrer">YT</a>
+          <a href="[IDE: Spotify link]" aria-label="Spotify" target="_blank" rel="noopener noreferrer">SP</a>
+          <a href="[IDE: TikTok link]" aria-label="TikTok" target="_blank" rel="noopener noreferrer">TT</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigáció</h4>
+        <ul>
+          <li><a href="#rolunk">Rólunk</a></li>
+          <li><a href="#szolgaltatasok">Szolgáltatások</a></li>
+          <li><a href="#csomagok">Csomagok</a></li>
+          <li><a href="#kapcsolat">Kapcsolat</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Elérhetőség</h4>
+        <ul>
+          <li><a href="mailto:[IDE: e-mail cím]">[IDE: e-mail cím]</a></li>
+          <li><a href="tel:[IDE: telefonszám]">[IDE: telefonszám]</a></li>
+          <li>[IDE: cím], Pécs</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Csonka Records. Minden jog fenntartva.</span>
+      <span>Nagyatádról indultunk – Pécsen folytatjuk.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ==========================================================
+     Év automatikus frissítése
+     ========================================================== */
+  var yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* ==========================================================
+     Mobil hamburger menü
+     ========================================================== */
+  var hamburgerBtn = document.getElementById('hamburgerBtn');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    hamburgerBtn.setAttribute('aria-expanded', 'false');
+  }
+
+  hamburgerBtn.addEventListener('click', function () {
+    var isOpen = mobileMenu.classList.toggle('open');
+    hamburgerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  mobileMenu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeMobileMenu();
+  });
+
+  /* ==========================================================
+     Animált waveform a hero-ban (JS-sel generált sávok)
+     ========================================================== */
+  var waveform = document.getElementById('waveform');
+  if (waveform) {
+    var barCount = 40;
+    for (var i = 0; i < barCount; i++) {
+      var bar = document.createElement('span');
+      var h = 12 + Math.round(Math.random() * 48);
+      bar.style.height = h + 'px';
+      bar.style.animationDelay = (Math.random() * 1.2).toFixed(2) + 's';
+      bar.style.animationDuration = (0.8 + Math.random() * 0.8).toFixed(2) + 's';
+      waveform.appendChild(bar);
+    }
+  }
+
+  /* ==========================================================
+     Scroll-reveal (IntersectionObserver)
+     ========================================================== */
+  var revealEls = document.querySelectorAll('.reveal');
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if ('IntersectionObserver' in window && !prefersReducedMotion) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+
+  /* ==========================================================
+     Árkalkulátor
+     ========================================================== */
+  var HOURLY_RATE = 4000;
+  var TRACK_RATE = 20000;
+
+  var calcTabs = document.querySelectorAll('.calc-tab');
+  var tracksField = document.getElementById('tracksField');
+  var hoursValueEl = document.getElementById('hoursValue');
+  var tracksValueEl = document.getElementById('tracksValue');
+  var calcTotalEl = document.getElementById('calcTotal');
+  var hoursLabel = document.getElementById('hoursLabel');
+
+  var calcState = { mode: 'starter', hours: 1, tracks: 1 };
+
+  function formatFt(n) {
+    return n.toLocaleString('hu-HU') + ' Ft';
+  }
+
+  function updateCalc() {
+    var total;
+    if (calcState.mode === 'starter') {
+      total = calcState.hours * HOURLY_RATE;
+      tracksField.style.display = 'none';
+      hoursLabel.textContent = 'Felvételi órák száma';
+    } else {
+      total = calcState.hours * HOURLY_RATE + calcState.tracks * TRACK_RATE;
+      tracksField.style.display = '';
+      hoursLabel.textContent = 'Felvételi órák száma';
+    }
+    calcTotalEl.textContent = formatFt(total);
+  }
+
+  calcTabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      calcTabs.forEach(function (t) { t.setAttribute('aria-pressed', 'false'); });
+      tab.setAttribute('aria-pressed', 'true');
+      calcState.mode = tab.getAttribute('data-calc');
+      updateCalc();
+    });
+  });
+
+  function bindStepper(minusId, plusId, valueEl, key, min, max) {
+    document.getElementById(minusId).addEventListener('click', function () {
+      calcState[key] = Math.max(min, calcState[key] - 1);
+      valueEl.textContent = calcState[key];
+      updateCalc();
+    });
+    document.getElementById(plusId).addEventListener('click', function () {
+      calcState[key] = Math.min(max, calcState[key] + 1);
+      valueEl.textContent = calcState[key];
+      updateCalc();
+    });
+  }
+
+  bindStepper('hoursMinus', 'hoursPlus', hoursValueEl, 'hours', 1, 24);
+  bindStepper('tracksMinus', 'tracksPlus', tracksValueEl, 'tracks', 1, 20);
+
+  updateCalc();
+
+  /* ==========================================================
+     "Ezt kérem" gombok – legörgetés + csomag előre kiválasztása
+     ========================================================== */
+  var packageSelect = document.getElementById('package');
+  document.querySelectorAll('.choose-package').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var pkg = btn.getAttribute('data-package');
+      if (packageSelect && pkg) {
+        packageSelect.value = pkg;
+      }
+    });
+  });
+
+  /* ==========================================================
+     Ajánlatkérő űrlap – kliensoldali validáció
+     ========================================================== */
+  var form = document.getElementById('requestForm');
+  var formSuccess = document.getElementById('formSuccess');
+
+  var validators = {
+    name: function (v) { return v.trim().length > 1; },
+    email: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); },
+    package: function (v) { return v.trim().length > 0; },
+    message: function (v) { return v.trim().length > 4; }
+  };
+
+  function validateField(field) {
+    var name = field.name;
+    if (!validators[name]) return true;
+    var row = field.closest('.form-row');
+    var valid = validators[name](field.value);
+    row.classList.toggle('invalid', !valid);
+    return valid;
+  }
+
+  Object.keys(validators).forEach(function (name) {
+    var field = form.elements[name];
+    if (field) {
+      field.addEventListener('blur', function () { validateField(field); });
+      field.addEventListener('input', function () {
+        if (field.closest('.form-row').classList.contains('invalid')) {
+          validateField(field);
+        }
+      });
+    }
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var allValid = true;
+    Object.keys(validators).forEach(function (name) {
+      var field = form.elements[name];
+      if (field && !validateField(field)) allValid = false;
+    });
+
+    if (!allValid) {
+      var firstInvalid = form.querySelector('.form-row.invalid input, .form-row.invalid select, .form-row.invalid textarea');
+      if (firstInvalid) firstInvalid.focus();
+      return;
+    }
+
+    /*
+      Backend nélküli demo: itt történne a tényleges submit egy
+      Formspree / Web3Forms endpointra (lásd a form "action" attribútumát,
+      helyőrző: [IDE: Formspree/Web3Forms endpoint]).
+      Ha az endpoint be van kötve, cseréld le az alábbi blokkot egy
+      valódi fetch()-re az action URL-jére, majd mutasd a sikeres állapotot
+      a válasz alapján.
+    */
+    form.style.display = 'none';
+    formSuccess.classList.add('show');
+    formSuccess.setAttribute('tabindex', '-1');
+    formSuccess.focus();
+  });
+
+})();
+</script>
+
+</body>
+</html>
