@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<!--
+  TODO – Pótlandó, valós adatok ezen az oldalon:
+  - E-mail cím, telefonszám
+  - Adatok megőrzési ideje
+  - Az ajánlatkérő űrlapot kiszolgáló szolgáltatás neve (pl. Formspree / Web3Forms) mint adatfeldolgozó
+  - Tárhelyszolgáltató adatai mint adatfeldolgozó
+  - Adatvédelmi tisztviselő adatai, ha van
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adatkezelési tájékoztató | Csonka Records</title>
+<meta name="description" content="A Csonka Records weboldalon és az ajánlatkérő űrlapon keresztül történő adatkezelés szabályai.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0a0a'/%3E%3Ctext x='32' y='44' font-family='Arial, sans-serif' font-weight='900' font-size='36' fill='%23ff2340' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-alt: #131313;
+    --bg-card: #161616;
+    --bg-card-border: #262626;
+    --text: #f2f2f0;
+    --text-muted: #9a9a95;
+    --accent: #ff2340;
+    --font-display: 'Anton', 'Arial Narrow', sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.65;
+  }
+  a { color: var(--accent); }
+  .topbar {
+    border-bottom: 1px solid var(--bg-card-border);
+    padding: 1rem 1.25rem;
+  }
+  .topbar a.back {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .topbar a.back:hover { color: var(--accent); }
+  .logo {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: var(--text);
+  }
+  .logo span { color: var(--accent); }
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 5rem;
+  }
+  h1 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    margin: 0 0 0.5rem;
+  }
+  .updated { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 2.5rem; }
+  h2 {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 1.15rem;
+    margin: 2.2rem 0 0.8rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--bg-card-border);
+  }
+  h2:first-of-type { border-top: none; padding-top: 0; }
+  h3 { font-size: 1rem; color: var(--text); margin: 1.2rem 0 0.5rem; }
+  p, li { color: var(--text-muted); }
+  strong { color: var(--text); }
+  ul { padding-left: 1.2rem; }
+  li { margin-bottom: 0.4rem; }
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .info-table tr { border-top: 1px solid var(--bg-card-border); }
+  .info-table tr:first-child { border-top: none; }
+  .info-table th, .info-table td {
+    text-align: left;
+    padding: 0.7rem 1rem;
+    font-size: 0.92rem;
+    font-weight: 400;
+    vertical-align: top;
+  }
+  .info-table th {
+    color: var(--text-muted);
+    width: 40%;
+    font-weight: 600;
+  }
+  .info-table td { color: var(--text); }
+  .placeholder { color: var(--accent); font-style: italic; }
+  .callout {
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-border);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    margin: 1rem 0;
+    font-size: 0.92rem;
+  }
+  footer.page-footer {
+    border-top: 1px solid var(--bg-card-border);
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html" class="logo">CSONKA <span>RECORDS</span></a>
+</div>
+
+<main>
+  <p><a class="back" href="index.html">&larr; Vissza a főoldalra</a></p>
+  <h1>Adatkezelési tájékoztató</h1>
+  <p class="updated">Jelen tájékoztató az Európai Parlament és a Tanács (EU) 2016/679 rendelete (GDPR), valamint az információs önrendelkezési jogról és az információszabadságról szóló 2011. évi CXII. törvény alapján készült. Célja, hogy tájékoztassa a weboldal látogatóit és az ajánlatkérő űrlapot kitöltő érdeklődőket a személyes adataik kezeléséről.</p>
+
+  <h2>1. Az adatkezelő adatai</h2>
+  <table class="info-table">
+    <tr><th>Adatkezelő neve</th><td>Csonka András EV</td></tr>
+    <tr><th>Székhely</th><td>7557 Somogytarnóca, Antal Terézia utca 21.</td></tr>
+    <tr><th>E-mail</th><td class="placeholder">[IDE: e-mail cím]</td></tr>
+    <tr><th>Telefonszám</th><td class="placeholder">[IDE: telefonszám]</td></tr>
+  </table>
+
+  <h2>2. A kezelt adatok köre és célja</h2>
+  <p>A weboldalon található ajánlatkérő űrlap kitöltésekor az alábbi adatokat kezeljük:</p>
+  <ul>
+    <li><strong>Név</strong> – a kapcsolattartás és a megszólítás céljából.</li>
+    <li><strong>E-mail cím</strong> – az ajánlat és a válasz eljuttatása céljából.</li>
+    <li><strong>Telefonszám</strong> (opcionális) – gyorsabb egyeztetés céljából, amennyiben az érintett megadja.</li>
+    <li><strong>Kiválasztott csomag</strong> – az ajánlat személyre szabása céljából.</li>
+    <li><strong>Üzenet tartalma</strong> – a kért szolgáltatás, stílus és igények megismerése céljából.</li>
+  </ul>
+  <p>Az adatok kezelésének célja kizárólag az érdeklődő megkeresésének megválaszolása, ajánlat készítése és a szolgáltatással kapcsolatos kapcsolattartás.</p>
+
+  <h2>3. Az adatkezelés jogalapja</h2>
+  <p>Az adatkezelés jogalapja a GDPR 6. cikk (1) bekezdés a) pontja szerinti önkéntes hozzájárulás, amelyet az érintett az űrlap kitöltésével és elküldésével ad meg.</p>
+
+  <h2>4. Az adatkezelés időtartama</h2>
+  <p>Az űrlapon keresztül megadott adatokat a megkeresés megválaszolásáig, illetve az esetleges szerződéskötést követően a jogszabályokban előírt ideig kezeljük: <span class="placeholder">[IDE: adatok pontos megőrzési ideje]</span>.</p>
+
+  <h2>5. Adatfeldolgozók, adattovábbítás</h2>
+  <p>Az ajánlatkérő űrlap technikai kiszolgálásában, illetve a weboldal üzemeltetésében az alábbi adatfeldolgozók vehetnek részt:</p>
+  <table class="info-table">
+    <tr><th>Űrlapkezelő szolgáltatás</th><td class="placeholder">[IDE: Formspree / Web3Forms vagy más űrlapkezelő szolgáltatás neve és adatvédelmi tájékoztatójának linkje]</td></tr>
+    <tr><th>Tárhelyszolgáltató</th><td class="placeholder">[IDE: tárhelyszolgáltató neve és székhelye]</td></tr>
+  </table>
+  <p>Adatait harmadik fél részére – a fent megjelölt adatfeldolgozókon kívül – nem adjuk tovább, kivéve, ha jogszabály erre kötelez minket.</p>
+
+  <h2>6. Az érintettek jogai</h2>
+  <p>A GDPR alapján Önt az alábbi jogok illetik meg a kezelt személyes adataival kapcsolatban:</p>
+  <ul>
+    <li>hozzáférés a személyes adatokhoz;</li>
+    <li>helyesbítés kéréséhez való jog;</li>
+    <li>törléshez ("elfeledtetéshez") való jog;</li>
+    <li>az adatkezelés korlátozásához való jog;</li>
+    <li>tiltakozáshoz való jog;</li>
+    <li>adathordozhatósághoz való jog;</li>
+    <li>a hozzájárulás bármikor történő visszavonásához való jog.</li>
+  </ul>
+  <p>Kérését a fenti elérhetőségeken keresztül juttathatja el hozzánk.</p>
+
+  <h2>7. Jogorvoslati lehetőségek</h2>
+  <p>Amennyiben úgy érzi, hogy adatkezelésünk sérti a jogszabályokat, panasszal fordulhat a Nemzeti Adatvédelmi és Információszabadság Hatósághoz, vagy bírósághoz fordulhat.</p>
+  <div class="callout">
+    <strong>Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</strong><br>
+    Cím: 1055 Budapest, Falk Miksa utca 9–11.<br>
+    Postacím: 1363 Budapest, Pf. 9.<br>
+    Telefon: +36 (1) 391-1400<br>
+    E-mail: ugyfelszolgalat@naih.hu<br>
+    Honlap: www.naih.hu
+  </div>
+
+  <h2>8. Sütik (cookie-k) használata</h2>
+  <p>A weboldal jelenleg nem használ analitikai, marketing- vagy követő sütiket. A böngésző csak a működéshez feltétlenül szükséges, technikai jellegű adatokat tárolhatja (pl. a mobil menü állapota), amelyek nem alkalmasak személyazonosításra.</p>
+
+  <h2>9. A tájékoztató módosítása</h2>
+  <p>Fenntartjuk a jogot, hogy jelen tájékoztatót a jogszabályi változásoknak vagy a szolgáltatás bővülésének megfelelően módosítsuk. A módosításokról a weboldalon tájékoztatjuk a látogatókat.</p>
+</main>
+
+<footer class="page-footer">
+  &copy; <span id="year"></span> Csonka Records. Minden jog fenntartva.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<!--
+  TODO – Pótlandó, valós adatok ezen az oldalon:
+  - Nyilvántartó hatóság neve
+  - Egyéni vállalkozói nyilvántartási szám
+  - Adószám
+  - E-mail cím, telefonszám
+  - Tárhelyszolgáltató adatai (név, székhely, elérhetőség)
+  - Weboldal URL
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impresszum | Csonka Records</title>
+<meta name="description" content="A Csonka Records weboldal üzemeltetőjének jogszabály által előírt adatai.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230a0a0a'/%3E%3Ctext x='32' y='44' font-family='Arial, sans-serif' font-weight='900' font-size='36' fill='%23ff2340' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-alt: #131313;
+    --bg-card: #161616;
+    --bg-card-border: #262626;
+    --text: #f2f2f0;
+    --text-muted: #9a9a95;
+    --accent: #ff2340;
+    --font-display: 'Anton', 'Arial Narrow', sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.65;
+  }
+  a { color: var(--accent); }
+  .topbar {
+    border-bottom: 1px solid var(--bg-card-border);
+    padding: 1rem 1.25rem;
+  }
+  .topbar a.back {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .topbar a.back:hover { color: var(--accent); }
+  .logo {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: var(--text);
+  }
+  .logo span { color: var(--accent); }
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 5rem;
+  }
+  h1 {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    margin: 0 0 0.5rem;
+  }
+  .updated { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 2.5rem; }
+  h2 {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: 1.15rem;
+    margin: 2.2rem 0 0.8rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--bg-card-border);
+  }
+  h2:first-of-type { border-top: none; padding-top: 0; }
+  p, li { color: var(--text-muted); }
+  strong { color: var(--text); }
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background: var(--bg-card);
+    border: 1px solid var(--bg-card-border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .info-table tr { border-top: 1px solid var(--bg-card-border); }
+  .info-table tr:first-child { border-top: none; }
+  .info-table th, .info-table td {
+    text-align: left;
+    padding: 0.7rem 1rem;
+    font-size: 0.92rem;
+    font-weight: 400;
+  }
+  .info-table th {
+    color: var(--text-muted);
+    width: 40%;
+    font-weight: 600;
+  }
+  .info-table td { color: var(--text); }
+  .placeholder { color: var(--accent); font-style: italic; }
+  footer.page-footer {
+    border-top: 1px solid var(--bg-card-border);
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html" class="logo">CSONKA <span>RECORDS</span></a>
+</div>
+
+<main>
+  <p><a class="back" href="index.html">&larr; Vissza a főoldalra</a></p>
+  <h1>Impresszum</h1>
+  <p class="updated">A weboldal üzemeltetőjének adatai az elektronikus kereskedelmi szolgáltatások, valamint az információs társadalommal összefüggő szolgáltatások egyes kérdéseiről szóló 2001. évi CVIII. törvény alapján.</p>
+
+  <h2>A szolgáltató adatai</h2>
+  <table class="info-table">
+    <tr><th>Cégnév</th><td>Csonka András EV</td></tr>
+    <tr><th>Székhely</th><td>7557 Somogytarnóca, Antal Terézia utca 21.</td></tr>
+    <tr><th>Nyilvántartó hatóság</th><td class="placeholder">[IDE: nyilvántartó hatóság neve]</td></tr>
+    <tr><th>Nyilvántartási szám</th><td class="placeholder">[IDE: egyéni vállalkozói nyilvántartási szám]</td></tr>
+    <tr><th>Adószám</th><td class="placeholder">[IDE: adószám]</td></tr>
+    <tr><th>E-mail</th><td class="placeholder">[IDE: e-mail cím]</td></tr>
+    <tr><th>Telefonszám</th><td class="placeholder">[IDE: telefonszám]</td></tr>
+  </table>
+
+  <h2>Tárhelyszolgáltató adatai</h2>
+  <table class="info-table">
+    <tr><th>Név</th><td class="placeholder">[IDE: tárhelyszolgáltató neve]</td></tr>
+    <tr><th>Székhely</th><td class="placeholder">[IDE: tárhelyszolgáltató székhelye]</td></tr>
+    <tr><th>E-mail</th><td class="placeholder">[IDE: tárhelyszolgáltató e-mail címe]</td></tr>
+  </table>
+
+  <h2>A weboldal</h2>
+  <p>A weboldal elérhetősége: <span class="placeholder">[IDE: weboldal URL]</span></p>
+
+  <h2>Jogérvényesítési lehetőségek</h2>
+  <p>Panasszal a szolgáltatónál a fenti elérhetőségeken, illetve az illetékes fogyasztóvédelmi hatóságnál és békéltető testületnél lehet élni. További információk az <a href="adatkezelesi-tajekoztato.html">Adatkezelési tájékoztatóban</a> és az <a href="aszf.html">Általános Szerződési Feltételekben</a> találhatók.</p>
+</main>
+
+<footer class="page-footer">
+  &copy; <span id="year"></span> Csonka Records. Minden jog fenntartva.
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
